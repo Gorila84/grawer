@@ -1,0 +1,43 @@
+
+<div class="container col-10 text-center mt-8 mb-4">
+  <h1>
+    Cena sprzedaży
+  </h1>
+  <hr>
+<form #sellingpriceform = "ngForm" class="form-inline mt-6" (ngSubmit)="postSellingPrice()">
+  <input class="form-control mr-sm-2" type="text" placeholder="Nazwa znakowania" [(ngModel)]="model.markName"
+  name="markName" required>
+  <input class="form-control mr-sm-2" type="number" placeholder="Wysokość" [(ngModel)]="model.height"
+  name="height" required>
+  <input class="form-control mr-sm-2" type="number" placeholder="Szerokość" [(ngModel)]="model.width"
+  name="width" required>
+  <input class="form-control mr-sm-2" type="number" placeholder="Cena sprzedaży" [(ngModel)]="model.sellingPrice"
+  name="quantity" required>
+  <button class="btn btn-outline-primary" type="submit">Dodaj</button>
+</form>
+</div>
+
+<div class="container col-10 text-center mb-4">
+<table class="table table-striped">
+  <thead>
+   
+    <tr >
+      <th scope="col">Id</th>
+      <th scope="col">Nazwa</th>
+      <th scope="col">Max wysokość cm</th>
+      <th scope="col">Max szerokość cm</th>
+      <th scope="col">Cena sprzedaży</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let sellingPrice of sellingPrices">
+      <th scope="row">{{ sellingPrice.id }}</th>
+      <td>{{ sellingPrice.markName }}</td>
+      <td>{{ sellingPrice.width }}</td>
+      <td>{{ sellingPrice.height }}</td>
+      <td>{{ sellingPrice.sellingPrice }}</td>
+      <td><button class="btn btn-outline-primary" type="submit">Edytuj</button></td>
+    </tr>
+  </tbody>
+</table>
+</div>

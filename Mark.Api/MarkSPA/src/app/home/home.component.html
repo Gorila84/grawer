@@ -1,0 +1,33 @@
+
+<div class="container col-9 text-center mt-4">
+  <h1>Cennik znakowania</h1>
+  <hr>
+  <p >Wychodząc na przeciw oczekiwaniom naszych klientów stworzyliśmy wygodny sposób wyceniania kosztów znakowania.
+    W celu wyceny kosztów znakowania należy wpisać w milimetrach wymiary prostokątu w jaki wpisuje się Państwa projekt,
+    który chcecie nadrukować lub wygrawerować na przedmiocie oraz ilość znakowanych przedmiotów.
+  </p>
+
+  <div class="col-sm-12">
+      <div class="tab-panel">
+        <tabset class="user-tabset">
+          <tab heading="Grawerowanie">
+            <form #countingform = "ngForm" class="form-inline mt-4 md-0" (ngSubmit)="count()">
+              <input class="form-control mr-sm-2" type="text" placeholder="Nazwa" [(ngModel)]="model.name"
+              name="name" required>
+              <input class="form-control mr-sm-2" type="number" placeholder="Wysokość" [(ngModel)]="model.height"
+              name="height" required>
+              <input class="form-control mr-sm-2" type="number" placeholder="Szerokość" [(ngModel)]="model.width"
+              name="width" required>
+              <input class="form-control mr-sm-2" type="number" placeholder="Ilość" [(ngModel)]="model.quantity"
+              name="quantity" required>
+              <button class="btn btn-outline-primary" type="submit">Oblicz</button>
+            </form>
+            <h4 class="mt-4">Cena netto: {{count()}}</h4>
+          </tab>
+
+        </tabset>
+      </div>
+    </div>
+  
+
+</div>
