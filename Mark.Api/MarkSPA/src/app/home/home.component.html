@@ -7,27 +7,56 @@
     który chcecie nadrukować lub wygrawerować na przedmiocie oraz ilość znakowanych przedmiotów.
   </p>
 
-  <div class="col-sm-12">
+  <!-- <div class="col-sm-12">
       <div class="tab-panel">
         <tabset class="user-tabset">
           <tab heading="Grawerowanie">
             <form #countingform = "ngForm" class="form-inline mt-4 md-0" (ngSubmit)="count()">
               <input class="form-control mr-sm-2" type="text" placeholder="Nazwa" [(ngModel)]="model.name"
               name="name" required>
-              <input class="form-control mr-sm-2" type="number" placeholder="Wysokość" [(ngModel)]="model.height"
-              name="height" required>
-              <input class="form-control mr-sm-2" type="number" placeholder="Szerokość" [(ngModel)]="model.width"
-              name="width" required>
+              <input class="form-control mr-sm-2" type="number" placeholder="Wysokość w mm" 
+              [(ngModel)]="model.height" name="height" min="5" max="500" required>
+              <input class="form-control mr-sm-2" type="number" placeholder="Szerokość w mm" 
+              [(ngModel)]="model.width" name="width" min="5" max="300" required>
               <input class="form-control mr-sm-2" type="number" placeholder="Ilość" [(ngModel)]="model.quantity"
-              name="quantity" required>
+              name="quantity" min="1" required>
               <button class="btn btn-outline-primary" type="submit">Oblicz</button>
             </form>
-            <h4 class="mt-4">Cena netto: {{count()}}</h4>
+            <h4 class="mt-4">Cena netto: {{count$ | async }} zł</h4>
           </tab>
-
+          <tab heading="Sublimacja">
+            <form #countingform = "ngForm" class="form-inline mt-4 md-0" (ngSubmit)="count()">
+              <input class="form-control mr-sm-2" type="text" placeholder="Nazwa" [(ngModel)]="model.name"
+              name="name" required>
+              <input class="form-control mr-sm-2" type="number" placeholder="Wysokość w mm" 
+              [(ngModel)]="model.height" name="height" min="5" max="290" required>
+              <input class="form-control mr-sm-2" type="number" placeholder="Szerokość w mm" 
+              [(ngModel)]="model.width" name="width" min="5" max="200" required>
+              <input class="form-control mr-sm-2" type="number" placeholder="Ilość" [(ngModel)]="model.quantity"
+              name="quantity" min="1" required>
+              <button class="btn btn-outline-primary" type="submit">Oblicz</button>
+            </form>
+            <h4 class="mt-4">Cena netto: {{count$ | async }} zł</h4>
+          </tab>
+          <tab heading="Flex">
+            <form #countingform = "ngForm" class="form-inline mt-4 md-0" (ngSubmit)="count()">
+              <input class="form-control mr-sm-2" type="text" placeholder="Nazwa" [(ngModel)]="model.name"
+              name="name" required>
+              <input class="form-control mr-sm-2" type="number" placeholder="Ilość kolorów" 
+               name="colors" min="1" max="4" required style="width: 5vw">
+              <input class="form-control mr-sm-2" type="number" placeholder="Wysokość w mm" 
+              [(ngModel)]="model.height" name="height" min="5" max="290" required>
+              <input class="form-control mr-sm-2" type="number" placeholder="Szerokość w mm" 
+              [(ngModel)]="model.width" name="width" min="5" max="200" required>
+              <input class="form-control mr-sm-2" type="number" placeholder="Ilość" [(ngModel)]="model.quantity"
+              name="quantity" min="1" required style="width: 10vw">
+              <button class="btn btn-outline-primary" type="submit">Oblicz</button>
+            </form>
+            <h4 class="mt-4">Cena netto: {{count$ | async }} zł</h4>
+          </tab>
         </tabset>
       </div>
-    </div>
+    </div> -->
   
 
 </div>

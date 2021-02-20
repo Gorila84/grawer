@@ -26,7 +26,7 @@ namespace Mark.Api.Controllers
             var buyingMaterialPrices = await _context.BuyingMaterialPrices.ToListAsync();
             return Ok(buyingMaterialPrices);
         }
-        [HttpGet("{id}")]
+        [HttpGet("{name}")]
         public async Task<IActionResult> GetBuyingMaterialPrice(string name)
         {
             var buyingMaterialPrice = await _context.BuyingMaterialPrices.FirstOrDefaultAsync(x => x.MarkName == name);
@@ -49,6 +49,7 @@ namespace Mark.Api.Controllers
             data.Width = buyingMaterialPrice.Width; 
             data.Height = buyingMaterialPrice.Height;
             data.SellingPrice = buyingMaterialPrice.SellingPrice;
+            data.MinimalPrice = buyingMaterialPrice.MinimalPrice;
             _context.BuyingMaterialPrices.Update(data);
             await _context.SaveChangesAsync();
             return Ok(buyingMaterialPrice);

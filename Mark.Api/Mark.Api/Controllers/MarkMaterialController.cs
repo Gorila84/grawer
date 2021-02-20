@@ -26,7 +26,7 @@ namespace Mark.Api.Controllers
             var markMaterialMargins = await _context.MarkMaterialMargins.ToListAsync();
             return Ok(markMaterialMargins);
         }
-        [HttpGet("{id}")]
+        [HttpGet("{name}")]
         public async Task<IActionResult> GetMarkMatrial(string name)
         {
             var markMaterialMargin = await _context.MarkMaterialMargins.FirstOrDefaultAsync(x => x.Name == name);

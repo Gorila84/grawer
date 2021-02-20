@@ -1,0 +1,8 @@
+.nav-item{
+    text-transform: capitalize;
+    cursor: pointer;
+}
+.dropdown-item{
+    text-transform: capitalize;
+    
+}

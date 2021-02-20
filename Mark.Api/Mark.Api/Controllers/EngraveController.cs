@@ -13,17 +13,18 @@ namespace Mark.Api.Controllers
     [ApiController]
     public class EngraveController : ControllerBase
     {
-        private readonly IEngraveCountingRepository _engraveCount;
+        private readonly IEngraveCountingService _engraveCount;
 
-        public EngraveController(IEngraveCountingRepository engraveCount)
+        public EngraveController(IEngraveCountingService engraveCount)
         {
             _engraveCount = engraveCount;
         }
 
         [HttpPost]
-        public async Task<IActionResult> CountEngravePart([FromBody]CountingForEngraveDto countingForEngraveDto)
+        public async Task<IActionResult> CountEngravePart([FromBody]CountingForMarkDto countingForEngraveDto)
         {
-            var price =  await _engraveCount.MarkingPriceCounting(countingForEngraveDto.Name,
+            string name = "grawer";
+            var price =  await _engraveCount.EngravePriceCounting(name,
                 countingForEngraveDto.Width, countingForEngraveDto.Height, countingForEngraveDto.Quantity);
             price.ToString();
             return Ok(price);

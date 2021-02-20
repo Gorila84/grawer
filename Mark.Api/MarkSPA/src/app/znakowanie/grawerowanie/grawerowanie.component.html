@@ -1,0 +1,74 @@
+<div class="container col-9 text-center mt-4">
+  <h1>Grawerowanie</h1>
+  <hr>
+
+  <!--<div class="col-sm-12">
+    <form #countingform="ngForm" class="form-inline mt-4 md-0" (ngSubmit)="count()">
+     <input class="form-control mr-sm-2" type="text" placeholder="Nazwa" [(ngModel)]="model.name" name="name" required>
+      <input class="form-control mr-sm-2" type="number" placeholder="Ilość kolorów" name="colors" min="1" max="4"
+        required style="width: 5vw">
+      <input class="form-control mr-sm-2" type="number" placeholder="Wysokość w mm" [(ngModel)]="model.height"
+        name="height" min="5" max="290" required>
+      <input class="form-control mr-sm-2" type="number" placeholder="Szerokość w mm" [(ngModel)]="model.width"
+        name="width" min="5" max="200" required>
+      <input class="form-control mr-sm-2" type="number" placeholder="Ilość" [(ngModel)]="model.quantity" name="quantity"
+        min="1" required style="width: 10vw">
+      <button class="btn btn-outline-primary" type="submit">Oblicz</button>
+    </form>
+    <h4 class="mt-4">Cena netto: {{count$ | async }} zł</h4>
+  </div>
+</div>-->
+
+  <div class="container  text-center mb-4">
+    <div class="row">
+      <div class="col-md-6">
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quasi a facere reiciendis. Magnam in fugiat voluptates.</p>
+      </div>
+      <div class="col-md-6">
+    <form class="form-inline mt-4 md-0" (ngSubmit)="count()">
+      <table class="table table-striped">
+        <tbody>
+          <!-- <tr>
+            <td>Nazwa</td>
+            <td> <input class="form-control mr-sm-2" type="text" placeholder="Nazwa" [(ngModel)]="model.name"
+                name="name" required></td>
+          </tr> -->
+
+          <tr>
+            <td>Wysokość w mm</td>
+            <td>
+              <input class="form-control mr-sm-2" type="number" placeholder="Wysokość w mm" [(ngModel)]="model.height"
+                name="height" min="5" max="290" required style="width: 200px;">
+            </td>
+          </tr>
+          <tr>
+            <td>Szerokość w mm</td>
+            <td>
+              <input class="form-control mr-sm-2" type="number" placeholder="Szerokość w mm" [(ngModel)]="model.width"
+                name="width" min="5" max="200" required style="width: 200px;">
+            </td>
+          </tr>
+          <tr>
+            <td>Ilość</td>
+            <td>
+              <input class="form-control mr-sm-2" type="number" placeholder="Ilość" [(ngModel)]="model.quantity"
+                name="quantity" min="1" required>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="row w-100">
+        <div class="col">
+        <div class="d-flex align-items-end justify-content-end">
+          <h4>Cena netto: {{count$ | async }} zł</h4>
+        </div>
+        <div class="d-flex align-items-end justify-content-end">
+          <button class="btn btn-outline-primary" type="submit">Oblicz</button>
+        </div>
+      </div>
+    </div>
+    </form>
+  </div>
+  </div>
+  </div>
+</div>

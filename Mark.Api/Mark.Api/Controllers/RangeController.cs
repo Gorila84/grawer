@@ -49,7 +49,6 @@ namespace Mark.Api.Controllers
             data.MaxHeight = range.MaxHeight;
             data.MaxWidth = range.MaxWidth;
             data.RangeMultiplier = range.RangeMultiplier;
-            data.MnimalPrice = range.MnimalPrice;
             _context.Ranges.Update(data);
             await _context.SaveChangesAsync();
             return Ok(range);

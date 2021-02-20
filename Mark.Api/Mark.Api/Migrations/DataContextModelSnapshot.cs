@@ -28,6 +28,9 @@ namespace Mark.Api.Migrations
                     b.Property<string>("MarkName")
                         .HasColumnType("TEXT");
 
+                    b.Property<double>("MinimalPrice")
+                        .HasColumnType("REAL");
+
                     b.Property<double>("SellingPrice")
                         .HasColumnType("REAL");
 

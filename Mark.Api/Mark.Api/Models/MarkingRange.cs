@@ -12,6 +12,6 @@ namespace Mark.Api.Models
         public double RangeMultiplier { get; set; }
         public int MaxWidth { get; set; }
         public int MaxHeight { get; set; }
-        public int MnimalPrice { get; set; }
+
     }
 }

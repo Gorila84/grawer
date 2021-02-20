@@ -1,6 +1,8 @@
 using Mark.Api.Count;
 using Mark.Api.Helpers;
 using Mark.Api.Models;
+using Mark.Api.Repositories.CountingRepositories;
+using Mark.Api.Services;
 using Mark.Api.UsersAuthorisations;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
@@ -36,8 +38,13 @@ namespace Mark.Api
             services.AddScoped<IAuthRepository, AuthRepository>();
             services.AddScoped<IGenericRepository, GenericRepository>();
             services.AddScoped<IUserRepository, UserRepository>();
-            services.AddScoped<IEngraveCountingRepository, EngraveCountingRepository>();
+            services.AddScoped<IEngraveCountingService, EngraveCountingService>();
+            services.AddScoped<IFoilCountingService, FoilCountingService>();
+            services.AddScoped<IMarkCountRepository, MarkCountRepository>();
+            services.AddScoped<ISublimationCountingService, SublimationCountingService>();
+            services.AddScoped<IMinimalPriceRepository, MinimalPriceRepository>();
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+                
                 .AddJwtBearer(options =>
                 {
                     options.TokenValidationParameters = new TokenValidationParameters

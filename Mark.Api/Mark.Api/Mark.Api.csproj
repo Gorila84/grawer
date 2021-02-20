@@ -22,12 +22,15 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.2" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.4" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="5.4.1" />
     <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="5.4.1" />
     <PackageReference Include="System.Configuration.ConfigurationManager" Version="4.7.0" />
     <Content Include="Startup.cs" />
     <Content Include="Controllers\AuthController.cs" />
     <Content Include="Controllers\EngraveController.cs" />
+    <Content Include="Helpers\IGenericRepository.cs" />
+    <Content Include="Count\IEngraveCountingRepository.cs" />
+    <Content Include="Models\BuyingMaterialPrice.cs" />
   </ItemGroup>
 </Project>

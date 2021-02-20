@@ -11,7 +11,8 @@ namespace Mark.Api.Models
         public string MarkName { get; set; }
         public double Width { get; set; }
         public double Height { get; set; }
-        public double SellingPrice { get; set; }
+        public double SellingPrice { get; set; } 
+        public double MinimalPrice { get; set; }
 
     }
 }

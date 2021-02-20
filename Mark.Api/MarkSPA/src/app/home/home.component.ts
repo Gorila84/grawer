@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
-import { CountEngraveService } from '../_services/countEngrave.service';
 import { map } from 'rxjs/operators';
+import { Variable } from '@angular/compiler/src/render3/r3_ast';
 
 @Component({
   selector: 'app-home',
@@ -10,16 +10,17 @@ import { map } from 'rxjs/operators';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+  engraveUrl = 'http://localhost:5000/api/Engrave';
   model: any={}; 
-
-  result: any;
+  count$: any;
   baseUrl = environment.apiUrl;
-  constructor(private http: HttpClient, private countEngrave: CountEngraveService) { }
+  constructor(private http: HttpClient) { }
 
   ngOnInit() {
   }
   count(){
-    this.countEngrave.count(this.model).subscribe();
+    this.count$ = this.http.post(this.engraveUrl, this.model);
+    
   }
 
 
