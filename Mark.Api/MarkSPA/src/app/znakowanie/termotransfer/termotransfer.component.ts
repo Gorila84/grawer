@@ -19,7 +19,7 @@ export class TermotransferComponent implements OnInit {
   ngOnInit() {
   }
   count(){
-    this.count$ = this.http.post(this.engraveUrl, this.model);
+    this.count$ = this.http.post(this.baseUrl + 'Engrave', this.model);
 
   }
 

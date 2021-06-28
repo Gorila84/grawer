@@ -5,6 +5,7 @@ import { MarkService } from 'src/app/_services/mark.service';
 import { ActivatedRoute } from '@angular/router';
 import { Engrave } from 'src/app/_model/engrave';
 import { CountService } from 'src/app/_services/count.service';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-sublimacja',
@@ -18,6 +19,8 @@ export class SublimacjaComponent implements OnInit {
   count$: any;
   baseUrl = environment.apiUrl;
   mark: Engrave;
+  countingForm: FormGroup;
+
   constructor(private http: HttpClient, 
              
               private markSevice: MarkService,
@@ -25,10 +28,14 @@ export class SublimacjaComponent implements OnInit {
               private counting: CountService) { }
 
   ngOnInit() {
-    
+    this.countingForm = new FormGroup({
+      height: new FormControl(Validators.required),
+      width: new FormControl(Validators.required),
+      quantity: new FormControl(Validators.required)
+    });
   }
   count(){
-    this.count$ = this.http.post(this.engraveUrl, this.model);
+    this.count$ = this.http.post(this.baseUrl + "Sublimacja", this.model);
  }
   // count(){
   //   this count$ = this.counting.countMarkPrice(+this.route.snapshot.params['id'],)

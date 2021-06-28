@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { MarkService } from '../_services/mark.service';
 import { Engrave } from '../_model/engrave';
 import { HttpClient } from '@angular/common/http';
+import { AlertifyService } from '../_services/alertify.service';
 
 @Component({
   selector: 'app-nav',
@@ -18,7 +19,8 @@ export class NavComponent implements OnInit {
  
 
   constructor(private authService: AuthService, private router: Router, 
-              private markService: MarkService, private http: HttpClient) { }
+              private markService: MarkService, private http: HttpClient,
+              private alertifyService: AlertifyService) { }
 
   ngOnInit() {
     this.loadMarkTypes();
@@ -26,9 +28,9 @@ export class NavComponent implements OnInit {
 
   login(){
    this.authService.login(this.model).subscribe(next=>{
-     console.log('Zalogowałeśsię do aplikacji');
+     this.alertifyService.success('Zalogowałeś się do aplikacji');
    },error => {
-     console.log('Wystąpił błąd logowania');
+     this.alertifyService.error('Wystąpił błąd logowania');
    }
    );
   }

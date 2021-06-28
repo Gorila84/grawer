@@ -18,34 +18,41 @@
     <h4 class="mt-4">Cena netto: {{count$ | async }} zł</h4>
   </div>
 </div>-->
-  <div class="container col-6 text-center mb-4">
+  <div class="container text-center mb-4">
+    <div class="row">
+      <div class="col-md-6 text-center">
+        <h2>Czym jest termotransfer?</h2>
+        <p>Termotransfer cyfrowy polega na przeniesieniu wydruku wykonanego 
+          na specjalnym papierze na drukarce cyfrowej na materiał znakowany.
+          Metoda ta sprawdza się doskonale przy znakowaniu odzieży jak i toreb bawełanianych. 
+          Druk termotransferowy pozwala przenieść skomplikowane wzory na koszulki lub bluzy.
+        </p>
+      </div>
+      <div class="col-md-6">
     <form class="form-inline mt-4 md-0" (ngSubmit)="count()">
       <table class="table table-striped">
         <tbody>
           <tr>
-            <td>Nazwa</td>
-            <td> <input class="form-control mr-sm-2" type="text" placeholder="Nazwa" [(ngModel)]="model.name"
-                name="name" required></td>
-          </tr>
-
-          <tr>
             <td>Wysokość w mm</td>
             <td>
-              <input class="form-control mr-sm-2" type="number" placeholder="Wysokość w mm" [(ngModel)]="model.height"
+              <input class="form-control mr-sm-2" type="number" placeholder="Wysokość w mm" 
+              [(ngModel)]="model.height" #height = ngModel
                 name="height" min="5" max="290" required style="width: 200px;">
             </td>
           </tr>
           <tr>
             <td>Szerokość w mm</td>
             <td>
-              <input class="form-control mr-sm-2" type="number" placeholder="Szerokość w mm" [(ngModel)]="model.width"
+              <input class="form-control mr-sm-2" type="number" placeholder="Szerokość w mm" 
+              [(ngModel)]="model.width" #width = ngModel
                 name="width" min="5" max="200" required style="width: 200px;">
             </td>
           </tr>
           <tr>
             <td>Ilość</td>
             <td>
-              <input class="form-control mr-sm-2" type="number" placeholder="Ilość" [(ngModel)]="model.quantity"
+              <input class="form-control mr-sm-2" type="number" placeholder="Ilość" 
+              [(ngModel)]="model.quantity" #quantity = ngModel
                 name="quantity" min="1" required>
             </td>
           </tr>
@@ -57,10 +64,13 @@
             <h4 class="mt-4">Cena netto: {{count$ | async }} zł</h4>
           </div>
           <div class="d-flex align-items-end justify-content-end">
-          <button class="btn btn-outline-primary" type="submit">Oblicz</button>
+          <button class="btn btn-outline-primary" type="submit"
+          [disabled]="height.errors?.required || width.errors?.required || quantity.errors?.required"
+          >Oblicz</button>
         </div>
       </div>
       </div>
       </form>
     </div>
   </div>
+</div>

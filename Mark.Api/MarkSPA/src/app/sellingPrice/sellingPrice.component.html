@@ -4,13 +4,15 @@
   </h1>
   <hr>
   <form #sellingpriceform="ngForm" class="form-inline mt-6" (ngSubmit)="postSellingPrice()">
-    <input class="form-control mr-sm-2" type="text" placeholder="Nazwa znakowania" [(ngModel)]="model.markName"
+    <input class="form-control mr-sm-2"  type="text" placeholder="Nazwa znakowania" [(ngModel)]="model.markName"
       name="markName" required>
-    <input class="form-control mr-sm-2" type="number" placeholder="Wysokość" [(ngModel)]="model.height" name="height"
+    <input style="width: 150px;" class="form-control mr-sm-2" type="number" placeholder="Wysokość" [(ngModel)]="model.height" name="height"
       required>
-    <input class="form-control mr-sm-2" type="number" placeholder="Szerokość" [(ngModel)]="model.width" name="width"
+    <input style="width: 150px;" class="form-control mr-sm-2" type="number" placeholder="Szerokość" [(ngModel)]="model.width" name="width"
       required>
-    <input class="form-control mr-sm-2" type="number" placeholder="Cena sprzedaży" [(ngModel)]="model.sellingPrice"
+    <input style="width: 150px;" class="form-control mr-sm-2" type="number" placeholder="Cena sprzedaży" [(ngModel)]="model.sellingPrice"
+      name="quantity" required>
+      <input style="width: 150px;" class="form-control mr-sm-2" type="number" placeholder="Cena minimalna" [(ngModel)]="model.minimalPrice"
       name="quantity" required>
     <button class="btn btn-outline-primary" type="submit">Dodaj</button>
   </form>
@@ -30,14 +32,15 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let sellingPrice of sellingPrices">
-        <th scope="row">{{ sellingPrice.id }}</th>
+      <tr *ngFor="let sellingPrice of sellingPrices; let i = index">
+        <th scope="row">{{ i+1 }}</th>
         <td>{{ sellingPrice.markName }}</td>
         <td>{{ sellingPrice.width }}</td>
         <td>{{ sellingPrice.height }}</td>
         <td>{{ sellingPrice.sellingPrice }}</td>
         <td>{{ sellingPrice.minimalPrice }}</td>
         <td><button class="btn btn-outline-primary" type="submit" (click)="open(content)">Edytuj</button></td>
+        <td><button class="btn btn-outline-danger" type="submit"  (click)="deleteUsers(sellingPrice.id)">Usuń</button></td>
       </tr>
     </tbody>
   </table>
@@ -57,13 +60,13 @@
             <div class="row">
               
                 <p>Maksymalna wysokość</p>
-                <input id="maxHeight" type="number" class="form-control">
+                <input type="number" class="form-control"  id="height">
                 <p>Maksymalna szerokość</p>
-                <input id="maxHeight" type="number" class="form-control">
+                <input type="number" class="form-control"  id="width">
                 <p>Cena sprzedaży</p>
-                <input id="maxHeight" type="number" class="form-control">
+                <input type="number" class="form-control"  id="sellPrice">
                 <p>Cena minimalna</p>
-                <input id="maxHeight" type="number" class="form-control">
+                <input type="number" class="form-control"  id="minPrice">
               </div>
           </div>
         </div>

@@ -1,16 +1,26 @@
-<p>
-  Zakładka "Zakres cen znakowania"
-</p>
-
+<div class="container col-10 text-center mt-8 mb-4">
+  <h1>
+    Cena sprzedaży
+  </h1>
+  <hr>
+  <form #rangeform="ngForm" class="form-inline mt-6" (ngSubmit)="postMarkRange()">
+    
+    <input class="form-control mr-sm-2" type="number" placeholder="Ilość" [(ngModel)]="model.height" name="height"
+      required>
+    <input class="form-control mr-sm-2" type="number" placeholder="Mnożnik" [(ngModel)]="model.width" name="width"
+      required>
+    
+    <button class="btn btn-outline-primary" type="submit">Dodaj</button>
+  </form>
+</div>
+<div class="container">
 <table class="table table-striped">
   <thead>
     <tr >
       <th scope="col">Id</th>
       <th scope="col">Ilość</th>
       <th scope="col">Mnożnik</th>
-      <th scope="col">Max wysokość cm</th>
-      <th scope="col">Max szerokość cm</th>
-      <th scope="col">Cena minimalna</th>
+     
     </tr>
   </thead>
   <tbody>
@@ -18,10 +28,9 @@
       <th scope="row">{{ markRange.id }}</th>
       <td>{{ markRange.quantity }}</td>
       <td>{{ markRange.rangeMultiplier }}</td>
-      <td>{{ markRange.maxWidth }}</td>
-      <td>{{ markRange.maxHeight }}</td>
-      <td>{{ markRange.mnimalPrice }}</td>
+  
       
     </tr>
   </tbody>
 </table>
+</div>

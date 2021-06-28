@@ -30,7 +30,7 @@ namespace Mark.Api.Controllers
         [HttpGet ("{id}")]
         public async Task<IActionResult> GetRanege(int quantity)
         {
-            var range = await _context.Ranges.FirstOrDefaultAsync(x=> x.Quantity == quantity);
+            var range = await _context.Ranges.FirstOrDefaultAsync(x=> x.Quantity >= quantity);
             return Ok(range);
         }
 

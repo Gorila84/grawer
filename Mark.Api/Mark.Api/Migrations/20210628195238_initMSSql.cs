@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Mark.Api.Migrations
 {
-    public partial class InitMigration : Migration
+    public partial class initMSSql : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -12,11 +12,12 @@ namespace Mark.Api.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     MarkName = table.Column<string>(nullable: true),
                     Width = table.Column<double>(nullable: false),
                     Height = table.Column<double>(nullable: false),
-                    SellingPrice = table.Column<double>(nullable: false)
+                    SellingPrice = table.Column<double>(nullable: false),
+                    MinimalPrice = table.Column<double>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -28,7 +29,7 @@ namespace Mark.Api.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(nullable: true),
                     AgencyMultiplier = table.Column<double>(nullable: false)
                 },
@@ -42,12 +43,11 @@ namespace Mark.Api.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     Quantity = table.Column<int>(nullable: false),
                     RangeMultiplier = table.Column<double>(nullable: false),
                     MaxWidth = table.Column<int>(nullable: false),
-                    MaxHeight = table.Column<int>(nullable: false),
-                    MnimalPrice = table.Column<int>(nullable: false)
+                    MaxHeight = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -59,7 +59,7 @@ namespace Mark.Api.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     Username = table.Column<string>(maxLength: 255, nullable: false),
                     PasswordHash = table.Column<byte[]>(nullable: false),
                     PasswordSalt = table.Column<byte[]>(nullable: true)

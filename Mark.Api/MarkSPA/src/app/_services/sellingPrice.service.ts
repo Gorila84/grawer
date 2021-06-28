@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -7,9 +8,9 @@ import { HttpClient } from '@angular/common/http';
 export class SellingPriceService {
 
   constructor(private http: HttpClient) { }
-
+  baseUrl = environment.apiUrl;
   addSellingPrice(model: any){
-    return this.http.post('http://localhost:5000/api/sellingmaterialprice', model);
+    return this.http.post(this.baseUrl + 'sellingmaterialprice', model);
     
   }
 

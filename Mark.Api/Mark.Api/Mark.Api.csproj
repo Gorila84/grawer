@@ -4,12 +4,6 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Remove="Migrations\20200508230911_InitMigration.cs" />
-    <Compile Remove="Migrations\20200508230911_InitMigration.Designer.cs" />
-    <Compile Remove="Migrations\20200509200730_InitMIgration.cs" />
-    <Compile Remove="Migrations\20200509200730_InitMIgration.Designer.cs" />
-  </ItemGroup>
-  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="3.1.4" />
     <PackageReference Include="Microsoft.Data.Sqlite" Version="3.1.3" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.3" />
@@ -18,6 +12,7 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite.Core" Version="3.1.3" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.3" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.3">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -32,5 +27,8 @@
     <Content Include="Helpers\IGenericRepository.cs" />
     <Content Include="Count\IEngraveCountingRepository.cs" />
     <Content Include="Models\BuyingMaterialPrice.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="wwwroot\" />
   </ItemGroup>
 </Project>

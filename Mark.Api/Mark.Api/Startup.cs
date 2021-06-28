@@ -33,7 +33,7 @@ namespace Mark.Api
         {
             services.AddControllers();
             services.AddDbContext<DataContext>(x => 
-                x.UseSqlite(_configuration.GetConnectionString("DefaultConnection")));
+                x.UseSqlServer(_configuration.GetConnectionString("ConnectionToDB")));
             services.AddCors();
             services.AddScoped<IAuthRepository, AuthRepository>();
             services.AddScoped<IGenericRepository, GenericRepository>();

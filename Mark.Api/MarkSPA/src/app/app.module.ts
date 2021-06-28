@@ -23,6 +23,7 @@ import { SublimacjaComponent } from './znakowanie/sublimacja/sublimacja.componen
 import { TermotransferComponent } from './znakowanie/termotransfer/termotransfer.component';
 import { MarkService } from './_services/mark.service';
 import { MarkNameResolver } from './_resolvers/markNameResolver';
+import { AlertifyService } from './_services/alertify.service';
 
 
 
@@ -54,7 +55,8 @@ import { MarkNameResolver } from './_resolvers/markNameResolver';
    providers: [
       AuthService,
       MarkService,
-      MarkNameResolver
+      MarkNameResolver,
+      AlertifyService
       
    ],
    bootstrap: [

@@ -19,7 +19,19 @@
     <h4 class="mt-4">Cena netto: {{count$ | async }} zł</h4>
   </div>
 </div>-->
-  <div class="container col-6 text-center mb-4">
+  <div class="container text-center mb-4">
+    <div class="row">
+      <div class="col-md-6 text-center">
+        <h2 class="py-2">Czym jest sublimacja?</h2>
+        <p>Sublimacja polega na wgrzaniu w wysokiej temperature przy odpowienim nacisku farby 
+          z papieru zadrukowanego specjalnym atramentem w znakowany przedmiot. 
+          Sublimacje wykonuje się tylko na odzieży poliestrowej białej oraz 
+          na przedmiotach przygotowanych do tej metody znakowania (np. kubeczki, deski do krojenia, ramki na zdjęcia).
+          Jest to jedna z najbardziej trwałych metod nadruku na tekstyliach. 
+          Proces druku pozwala na przeniesienie grafik lub zdjęć wysokiej jakośći i dużego stopnia skomplikowania na znakowany materiał. 
+        </p>
+      </div>
+      <div class="col-md-6">
     <form class="form-inline mt-4 md-0" (ngSubmit)="count()">
       <table class="table table-striped">
         <tbody>
@@ -32,21 +44,24 @@
           <tr>
             <td>Wysokość w mm</td>
             <td>
-              <input class="form-control mr-sm-2" type="number" placeholder="Wysokość w mm" [(ngModel)]="model.height"
+              <input class="form-control mr-sm-2" type="number" placeholder="Wysokość w mm"
+               [(ngModel)]="model.height" #height = ngModel
                 name="height" min="5" max="290" required style="width: 200px;">
             </td>
           </tr>
           <tr>
             <td>Szerokość w mm</td>
             <td>
-              <input class="form-control mr-sm-2" type="number" placeholder="Szerokość w mm" [(ngModel)]="model.width"
+              <input class="form-control mr-sm-2" type="number" placeholder="Szerokość w mm" 
+              [(ngModel)]="model.width" #width = ngModel
                 name="width" min="5" max="200" required style="width: 200px;">
             </td>
           </tr>
           <tr>
             <td>Ilość</td>
             <td>
-              <input class="form-control mr-sm-2" type="number" placeholder="Ilość" [(ngModel)]="model.quantity"
+              <input class="form-control mr-sm-2" type="number" placeholder="Ilość" 
+              [(ngModel)]="model.quantity" #quantity = ngModel
                 name="quantity" min="1" required>
             </td>
           </tr>
@@ -58,10 +73,13 @@
           <h4>Cena netto: {{count$ | async }} zł</h4>
         </div>
         <div class="d-flex align-items-end justify-content-end">
-          <button class="btn btn-outline-primary" type="submit">Oblicz</button>
+          <button class="btn btn-outline-primary" type="submit"
+          [disabled]="height.errors?.required || width.errors?.required || quantity.errors?.required"
+          >Oblicz</button>
         </div>
       </div>
       </div>
     </form>
   </div>
+</div>
 </div>

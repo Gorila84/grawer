@@ -21,54 +21,138 @@
 
   <div class="container  text-center mb-4">
     <div class="row">
-      <div class="col-md-6">
-        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quasi a facere reiciendis. Magnam in fugiat voluptates.</p>
+      <div class="col-md-6 text-center">
+        <h2 class="py-2 ">Co to jest grawererowanie?</h2>
+        <p>Grawerowanie laserowe jest to zdzieranie lub wypalanie (w zależości od materiału) wierzchniej warstwy z materiału
+          za pomocą wiązki laserowej. Znakowanie tą metodą jest niezwykle trwałe, jego usunięcie jest niezwykle trudne. 
+          Grawerowanie laserem CO2 pozwala na znakowanie poniższych materiałów:
+        </p>
+        <ul class="text-left">
+          <li>drewno</li>
+          <li>metale powlekane</li>
+          <li>sklejka</li>
+          <li>guma</li>
+          <li>skóra</li>
+          <li>owoce</li>
+          <li>papier</li>
+          <li>karton</li>
+          <li>niektóre tekstylia</li>
+          <li>kamień</li>
+          <li>ceramika</li>
+        </ul>
       </div>
-      <div class="col-md-6">
-    <form class="form-inline mt-4 md-0" (ngSubmit)="count()">
-      <table class="table table-striped">
-        <tbody>
-          <!-- <tr>
-            <td>Nazwa</td>
-            <td> <input class="form-control mr-sm-2" type="text" placeholder="Nazwa" [(ngModel)]="model.name"
-                name="name" required></td>
-          </tr> -->
+      <!-- <div class="col-md-6">
+      <form>
+        <div>
+        <input type="number" class="form-control"
+       placeholder="Wysokość"
+       name="height"
+       [(ngModel)]="model.height"
+       #height="ngModel" required>
+      </div>
+        <div>
+          <input type="text" class="form-control"
+          placeholder="Szerokość"
+          name="width"
+          [(ngModel)]="model.width"
+          #width="ngModel" required>
 
-          <tr>
-            <td>Wysokość w mm</td>
-            <td>
-              <input class="form-control mr-sm-2" type="number" placeholder="Wysokość w mm" [(ngModel)]="model.height"
-                name="height" min="5" max="290" required style="width: 200px;">
-            </td>
-          </tr>
-          <tr>
-            <td>Szerokość w mm</td>
-            <td>
-              <input class="form-control mr-sm-2" type="number" placeholder="Szerokość w mm" [(ngModel)]="model.width"
-                name="width" min="5" max="200" required style="width: 200px;">
-            </td>
-          </tr>
-          <tr>
-            <td>Ilość</td>
-            <td>
-              <input class="form-control mr-sm-2" type="number" placeholder="Ilość" [(ngModel)]="model.quantity"
-                name="quantity" min="1" required>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-      <div class="row w-100">
-        <div class="col">
-        <div class="d-flex align-items-end justify-content-end">
-          <h4>Cena netto: {{count$ | async }} zł</h4>
         </div>
-        <div class="d-flex align-items-end justify-content-end">
-          <button class="btn btn-outline-primary" type="submit">Oblicz</button>
+        <div>
+          <input type="text" class="form-control"
+          placeholder="ilość"
+          name="quantity"
+          [(ngModel)]="model.quantity"
+          #quantity="ngModel" required>
+
         </div>
+
+          <button class="classBtn" type="submit"
+                  [disabled]="height.errors?.required || width.errors?.required || quantity.errors?.required">
+              Oblicz
+          </button>
+      </form>
+    </div> -->
+    <form class="col-md-6">
+      
+        
+
+      <form name= "countingForm" class="form-inline mt-4 md-0" ng-class="{'submitted': submitted}" (ngSubmit)="count()">
+      
+        <table class="table table-striped">
+          <tbody>
+            <!-- <tr>
+              <td>Nazwa</td>
+              <td> <input class="form-control mr-sm-2" type="text" placeholder="Nazwa" [(ngModel)]="model.name"
+                  name="name" required></td>
+            </tr> -->
+  
+            <tr>
+              <td>Wysokość w mm</td>
+              <td>
+                <input class="form-control mr-sm-2" type="number" placeholder="Wysokość w mm" [(ngModel)]="model.height"
+                  name="height" min="5" max="290" required style="width: 200px;"
+                  #height="ngModel"
+                > 
+           
+              </td>
+              
+            </tr>
+            <tr>
+              <td>Szerokość w mm</td>
+              <td>
+                <input class="form-control mr-sm-2" type="number" placeholder="Szerokość w mm" [(ngModel)]="model.width"
+                  name="width" min="5" max="200" required  style="width: 200px;"
+                  #width="ngModel">
+              </td>
+            </tr>
+            <tr>
+              <td>Ilość</td>
+              <td>
+                <input class="form-control mr-sm-2" type="number" placeholder="Ilość" [(ngModel)]="model.quantity"
+                  name="quantity" min="1" required
+                  #quantity="ngModel">
+              </td>
+              
+            </tr>
+          </tbody>
+        </table>
+        <div class="row w-100">
+          <div class="col">
+          <div class="d-flex align-items-end justify-content-end">
+            <h4>Cena netto: {{count$ | async }} zł</h4>
+          </div>
+          <div class="d-flex align-items-end justify-content-end">
+            <button class="btn btn-outline-primary" type="submit" 
+            [disabled]="height.errors?.required || width.errors?.required || quantity.errors?.required"
+            >Oblicz</button>
+          </div>
+          <!-- ng-click="submitted= true;" -->
+        </div>
+      </div>
+      </form>
+        </form>
+  </div>
+  </div>
+  </div>
+ 
+  <div class="text-center container">
+    <h3>Przykładowe prace</h3>
+    <hr>
+    <div class="row d-flex justify-content-between">
+      <div class="col-md-3 mark_image">
+        <img class = "mark_image" src="../../../assets/img/breloki.jpg" alt="">
+      </div>
+      <div class="col-md-3 mark_image">
+        <img class = "mark_image" src="../../../assets/img/kalendarz.jpg" alt="">
+      </div>
+      <div class="col-md-3 mark_image">
+        <img class = "mark_image" src="../../../assets/img/skrzyneczka.jpg" alt="">
+      </div>
+      <div class="col-md-3 mark_image">
+        <img class = "mark_image" src="../../../assets/img/statuetki.jpg" alt="">
       </div>
     </div>
-    </form>
   </div>
-  </div>
-  </div>
-</div>
+
+  

@@ -14,12 +14,13 @@ export class HomeComponent implements OnInit {
   model: any={}; 
   count$: any;
   baseUrl = environment.apiUrl;
+  
   constructor(private http: HttpClient) { }
 
   ngOnInit() {
   }
   count(){
-    this.count$ = this.http.post(this.engraveUrl, this.model);
+    this.count$ = this.http.post(this.baseUrl + "Engrave", this.model);
     
   }
 
