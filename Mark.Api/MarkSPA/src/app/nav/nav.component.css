@@ -4,5 +4,10 @@
 }
 .dropdown-item{
     text-transform: capitalize;
+    cursor: pointer;
     
+}
+
+.dropdown-toggle{
+    cursor: pointer;
 }

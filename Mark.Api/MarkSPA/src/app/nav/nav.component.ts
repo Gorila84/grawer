@@ -40,7 +40,7 @@ export class NavComponent implements OnInit {
   }
   logout(){
     localStorage.removeItem('token');
-    console.log('Zostałeś wylogowany');
+    this.alertifyService.success('Zostałeś wylogowany');
     this.router.navigate(['/home']);
   }
  loadMarkTypes(){

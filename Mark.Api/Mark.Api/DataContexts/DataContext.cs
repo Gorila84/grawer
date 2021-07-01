@@ -12,5 +12,6 @@ namespace Mark.Api.Models
             public DbSet<User> Users { get; set; }
             public DbSet<MarkingRange> Ranges { get; set; }
             public DbSet<MarkMaterialMargin> MarkMaterialMargins { get; set; }
+            public DbSet<MultiplierRange> MultiplierRanges { get; set; }
     }
 }

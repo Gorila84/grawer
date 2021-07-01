@@ -43,6 +43,7 @@ namespace Mark.Api
             services.AddScoped<IMarkCountRepository, MarkCountRepository>();
             services.AddScoped<ISublimationCountingService, SublimationCountingService>();
             services.AddScoped<IMinimalPriceRepository, MinimalPriceRepository>();
+            services.AddScoped<IMultiplierRepository, MultiplierRepository>();
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                 
                 .AddJwtBearer(options =>
