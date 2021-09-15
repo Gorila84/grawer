@@ -77,7 +77,8 @@
       
         
 
-      <form name= "countingForm" class="form-inline mt-4 md-0" ng-class="{'submitted': submitted}" (ngSubmit)="count()">
+      <form name= "countingForm" class="form-inline mt-4 md-0" #f="ngForm"
+       ng-class="{'submitted': submitted}" (ngSubmit)="count()">
       
         <table class="table table-striped">
           <tbody>

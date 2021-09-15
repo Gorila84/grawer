@@ -2,6 +2,8 @@
     position: relative;
     height: 200px;
     width: 200px;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+    margin-bottom: 20px;
 }
 
 .submitted .ng-invalid{

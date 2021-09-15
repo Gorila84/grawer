@@ -19,10 +19,23 @@ namespace Mark.Api.Repositories.CountingRepositories
         {
             var multiplier = _context.MultiplierRanges.SingleOrDefault(x => x.LowerRange <= quantity
                                                                         && x.HigherRange >= quantity);
-               
-                
-            decimal multiplierValue = Convert.ToDecimal(multiplier.Multiplier);
-            return Decimal.Round(multiplierValue, 2);
+            var maxMultiplier = _context.MultiplierRanges.Min(x => x.Multiplier);
+
+
+            if (multiplier != null)
+            {
+                decimal multiplierValue = Convert.ToDecimal(multiplier.Multiplier);
+                return Decimal.Round(multiplierValue, 2);
+            }
+            else
+            {
+                decimal multiplierValue = Convert.ToDecimal(maxMultiplier);
+                return Decimal.Round(multiplierValue, 2);
+            }
+            
+
+
+
         }
     }
 }

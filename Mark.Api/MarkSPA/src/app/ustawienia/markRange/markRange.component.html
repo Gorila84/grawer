@@ -1,0 +1,47 @@
+<div class="container col-10 text-center mt-8 mb-4">
+  <h1>
+    Zakresy rabatów
+  </h1>
+  <hr>
+  <form name = "addRangeForm" #rangeform="ngForm" class="form-inline mt-6" (ngSubmit)="postMarkRange()">
+    
+    <input class="form-control mr-sm-2" type="number" #lowerRange=ngModel name="lowerRange" placeholder="Dolna granica" [(ngModel)]="model.lowerRange" name="lowerRange"
+      required>
+    <input class="form-control mr-sm-2" type="number" #higherRange=ngModel name="higherRange" placeholder="Górna granica" [(ngModel)]="model.higherRange" name="higherRange"
+      required>
+    <input class="form-control mr-sm-2" type="number" #multiplier=ngModel name="multiplier" placeholder="Mnożnik" [(ngModel)]="model.multiplier" name="multiplier"
+      required> 
+    
+    <button class="btn btn-outline-primary" type="submit"
+    [disabled]="lowerRange.errors?.required || higherRange.errors?.required || multiplier.errors?.required"
+    >Dodaj</button>
+  </form>
+</div>
+<div class="container">
+<table class="table table-striped">
+  <thead>
+    <tr >
+      <th scope="col">Id</th>
+      
+      <th scope="col">Dolny zakres</th>
+      <th scope="col">Górny zakres</th>
+      <th scope="col">Mnożnik</th>
+      <th></th>
+     <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let markRange of markRanges">
+      <th scope="row">{{ markRange.id }}</th>
+    
+      <td>{{ markRange.lowerRange }}</td>
+      <td>{{ markRange.higherRange }}</td>
+      <td>{{ markRange.multiplier }}</td>
+      <td><button class="btn btn-outline-primary" type="submit">Edytuj</button></td>
+        <td><button class="btn btn-outline-danger" type="submit"  (click)="deleteMarkRange(markRange.id)">Usuń</button></td>
+      
+      
+    </tr>
+  </tbody>
+</table>
+</div>

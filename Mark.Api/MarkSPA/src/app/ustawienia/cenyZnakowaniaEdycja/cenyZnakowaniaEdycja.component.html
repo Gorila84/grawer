@@ -1,0 +1,33 @@
+<div class="container col-9 text-center mt-4">
+    <h1>Edycja {{sellingPrice.markName}}</h1>
+    <hr>
+
+    <div class="row">
+        <div class="col-6 card">
+            <form class="py-2" #editForm="ngForm" id="editForm"  (ngSubmit)="updateSellingPrice()">
+                <div class="mb-3">
+                  <label for="height" class="form-label">Maksymalna wysokość (mm)</label>
+                  <input type="number" class="form-control" id="height" 
+                  name="height" [(ngModel)]="sellingPrice.height">
+                </div>
+                <div class="mb-3">
+                  <label for="width" class="form-label">Maksymalna szerokość(mm)</label>
+                  <input type="number" class="form-control" id="width"  
+                  name="width" [(ngModel)]="sellingPrice.width">
+                </div>
+                <div class="mb-3">
+                    <label for="sellingPrice" class="form-label">Cena spredaży za maksymalne pole (zł)</label>
+                    <input type="number" class="form-control" id="sellingPrice"  
+                    name="sellingPrice" [(ngModel)]="sellingPrice.sellingPrice">
+                </div>
+                <div class="mb-3">
+                    <label for="minimalPrice" class="form-label">Minimalna cena sprzedaży (zł)</label>
+                    <input type="number" class="form-control" id="minimalPrice"  
+                    name="minimalPrice" [(ngModel)]="sellingPrice.minimalPrice">
+                </div>
+                <button type="submit" class="btn btn-primary">Zapisz zmiany</button>
+              </form>
+        </div>
+
+    </div>
+</div>

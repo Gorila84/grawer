@@ -1,11 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { SellingPriceService } from '../_services/sellingPrice.service';
+import { SellingPriceService } from '../../_services/sellingPrice.service';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 import { environment } from 'src/environments/environment';
 import { FormGroup } from '@angular/forms';
-import { Engrave } from '../_model/engrave';
-import { Observable } from 'rxjs/internal/Observable';
+import { SellingPrice } from 'src/app/_model/sellingPrice';
+import { ActivatedRoute } from '@angular/router';
+
 
 
 @Component({
@@ -14,11 +15,13 @@ import { Observable } from 'rxjs/internal/Observable';
   styleUrls: ['./sellingPrice.component.css']
 })
 export class SellingPriceComponent implements OnInit {
+  @Input() sellingPriceModel: SellingPrice;
   status;
   sellingPrices: any;
   model: any ={};
   closeResult = '';
   name:string;
+  content: FormGroup;
   
   
     //editProfileForm: FormGroup;
@@ -26,7 +29,8 @@ export class SellingPriceComponent implements OnInit {
 
   constructor(private http: HttpClient , 
               private sellingPrice: SellingPriceService,
-              private modalService: NgbModal) { }
+              private modalService: NgbModal,
+              private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.getSellingPrice();
@@ -79,22 +83,7 @@ export class SellingPriceComponent implements OnInit {
     this.sellingPrices.push(this.model);
     location.reload();
   }
-  open(content) {
-    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
-      this.closeResult = `Closed with: ${result}`;
-    }, (reason) => {
-      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
-    });
-  }
-
-  private getDismissReason(reason: any): string {
-    if (reason === ModalDismissReasons.ESC) {
-      return 'by pressing ESC';
-    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
-      return 'by clicking on a backdrop';
-    } else {
-      return `with: ${reason}`;
-    }
-  }
+  // 
+  
 
 }

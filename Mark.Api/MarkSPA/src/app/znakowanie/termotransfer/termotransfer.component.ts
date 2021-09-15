@@ -10,7 +10,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class TermotransferComponent implements OnInit {
 
-  engraveUrl = 'http://localhost:5000/api/Engrave';
+  engraveUrl = 'http://localhost:5000/api/Termotransfer';
   model: any = {};
   count$: any;
   baseUrl = environment.apiUrl;
@@ -19,7 +19,7 @@ export class TermotransferComponent implements OnInit {
   ngOnInit() {
   }
   count(){
-    this.count$ = this.http.post(this.baseUrl + 'Engrave', this.model);
+    this.count$ = this.http.post(this.baseUrl + 'Termotransfer', this.model);
 
   }
 

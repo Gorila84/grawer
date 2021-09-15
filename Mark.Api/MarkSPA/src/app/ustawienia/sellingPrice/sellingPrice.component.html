@@ -29,6 +29,8 @@
         <th scope="col">Max szerokość cm</th>
         <th scope="col">Cena sprzedaży</th>
         <th scope="col">Cena minimalna</th>
+        <th></th>
+        <th></th>
       </tr>
     </thead>
     <tbody>
@@ -39,42 +41,12 @@
         <td>{{ sellingPrice.height }}</td>
         <td>{{ sellingPrice.sellingPrice }}</td>
         <td>{{ sellingPrice.minimalPrice }}</td>
-        <td><button class="btn btn-outline-primary" type="submit" (click)="open(content)">Edytuj</button></td>
-        <td><button class="btn btn-outline-danger" type="submit"  (click)="deleteUsers(sellingPrice.id)">Usuń</button></td>
+        <!-- (click)="open(content)" -->
+        <td><button class="btn btn-outline-primary" type="submit" 
+          [routerLink]="['/cenysprzedazy/',sellingPrice.id]" >Edytuj</button></td>
+
+            <td><button class="btn btn-outline-danger" type="submit"  (click)="deleteUsers(sellingPrice.id)">Usuń</button></td>
       </tr>
     </tbody>
   </table>
 </div>
-
-<ng-template #content let-modal>
-  <div class="modal-header">
-    <!-- <h4 class="modal-title" id="modal-basic-title" (loadeddata)="">Nazwa Edytowanej Linii</h4> -->
-
-  </div>
-  <div class="modal-body">
-    <form>
-      <div class="form-group">
-
-        <div class="input-group">
-          <div class="container">
-            <div class="row">
-                <p>{{sellingPrices.markName}}</p>
-                <p>Maksymalna wysokość</p>
-                <input type="number" class="form-control"  id="height">
-                <p>Maksymalna szerokość</p>
-                <input type="number" class="form-control"  id="width">
-                <p>Cena sprzedaży</p>
-                <input type="number" class="form-control"  id="sellPrice">
-                <p>Cena minimalna</p>
-                <input type="number" class="form-control"  id="minPrice">
-              </div>
-          </div>
-        </div>
-      </div>
-    </form>
-  </div>
-  <div class="modal-footer">
-    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
-    <button type="button" class="btn btn-outline-dark" (click)="modal.close()">Cancel</button>
-  </div>
-</ng-template>

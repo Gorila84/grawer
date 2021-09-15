@@ -26,10 +26,10 @@ namespace Mark.Api.Controllers
             var buyingMaterialPrices = await _context.BuyingMaterialPrices.ToListAsync();
             return Ok(buyingMaterialPrices);
         }
-        [HttpGet("{name}")]
-        public async Task<IActionResult> GetBuyingMaterialPrice(string name)
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetBuyingMaterialPrice(int id)
         {
-            var buyingMaterialPrice = await _context.BuyingMaterialPrices.FirstOrDefaultAsync(x => x.MarkName == name);
+            var buyingMaterialPrice = await _context.BuyingMaterialPrices.FirstOrDefaultAsync(x => x.Id == id);
             return Ok(buyingMaterialPrice);
         }
 

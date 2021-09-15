@@ -9,12 +9,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppComponent } from './app.component';
-import { MarkRangeComponent } from './markRange/markRange.component';
+import { MarkRangeComponent } from './ustawienia/markRange/markRange.component';
 import { NavComponent } from './nav/nav.component';
 import { AuthService } from './_services/auth.service';
 import { RegisterComponent } from './register/register.component';
 import { HomeComponent } from './home/home.component';
-import { SellingPriceComponent } from './sellingPrice/sellingPrice.component';
+import { SellingPriceComponent } from './ustawienia/sellingPrice/sellingPrice.component';
 import { appRoutes } from './routes';
 import { FoliaFlockComponent } from './znakowanie/foliaFlock/foliaFlock.component';
 import { FoliaFlexComponent } from './znakowanie/foliaFlex/foliaFlex.component';
@@ -24,6 +24,8 @@ import { TermotransferComponent } from './znakowanie/termotransfer/termotransfer
 import { MarkService } from './_services/mark.service';
 import { MarkNameResolver } from './_resolvers/markNameResolver';
 import { AlertifyService } from './_services/alertify.service';
+import { CenyZnakowaniaEdycjaComponent } from './ustawienia/cenyZnakowaniaEdycja/cenyZnakowaniaEdycja.component';
+import { SellingDetailResolver } from './_resolvers/sellingPrice.resolver';
 
 
 
@@ -39,7 +41,8 @@ import { AlertifyService } from './_services/alertify.service';
       FoliaFlockComponent,
       GrawerowanieComponent,
       SublimacjaComponent,
-      TermotransferComponent
+      TermotransferComponent,
+      CenyZnakowaniaEdycjaComponent
    ],
    imports: [
       BrowserModule,
@@ -56,6 +59,7 @@ import { AlertifyService } from './_services/alertify.service';
       AuthService,
       MarkService,
       MarkNameResolver,
+      SellingDetailResolver,
       AlertifyService
       
    ],
