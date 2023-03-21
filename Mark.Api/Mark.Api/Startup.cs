@@ -32,8 +32,11 @@ namespace Mark.Api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+       
             services.AddDbContext<DataContext>(x => 
-                x.UseSqlServer(_configuration.GetConnectionString("ConnectionToDB")));
+                x.UseMySQL(_configuration.GetConnectionString("ConnectionToDB")));
+
+         
             services.AddCors();
             services.AddScoped<IAuthRepository, AuthRepository>();
             services.AddScoped<IGenericRepository, GenericRepository>();
